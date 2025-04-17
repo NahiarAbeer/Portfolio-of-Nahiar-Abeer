@@ -8,11 +8,17 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="project.css">
     <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="loading.css">
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/ae04755040.js" crossorigin="anonymous"></script>
   </head>
   <body>
 
+      <!-- Loading Screen -->
+      <div id="loading-screen">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+      </div>
       <header>
         <a href="#" class="logo"><span>Nahiar</span><span>Abeer</span></a>
         <span class="dayNight">
@@ -111,34 +117,61 @@
 
     <script src="https://unpkg.com/typed.js@2.0.14/dist/typed.umd.js"></script>
     <script>
-      let typingText = new Typed("#text", {
-        strings: [
-          "Nahiar Abeer",
-          "BUETian",
-          "DMRCian",
-          "Programmer",
-          "Web Designer",
-          "Challenge Seeker",
-        ],
-        loop: true,
-        typeSpeed: 100,
-        backSpeed: 30,
-        backDelay: 2000,
+      // Wait for all images to load
+      window.addEventListener('load', () => {
+        const loadingScreen = document.getElementById('loading-screen');
+
+        // Hide the loading screen after a short delay
+        setTimeout(() => {
+          loadingScreen.classList.add('hidden');
+
+          // Start animations after the loading screen is hidden
+          startAnimations();
+        }, 500); // Adjust delay as needed
       });
-    
-      let description = new Typed("#description", {
-  strings: ["",
-    "I'm Nahiar Abeer, a BUET Biomedical Engineering student with top admission ranks: BUET (720), BUP (72), MIST (165), and RUET (360). I teach Math, Physics, Chemistry, and specialize in Biology + ICT. With a strong academic background and skills in programming and front-end development, I simplify complex topics and help students learn effectively."
-  ],
-  loop: false, // Do not loop
-  typeSpeed: 30, // Typing speed for smooth animation
-  backSpeed: 0, // No backspacing
-  showCursor: true, // Show the blinking cursor for a typing effect
-  cursorChar: "|", // Customize the cursor character
-  onComplete: (self) => {
-    self.cursor.remove(); // Remove the cursor after typing is complete
-  },
-});
+
+// Function to start animations
+function startAnimations() {
+  // Example: Start social icons animation
+  const socialIcons = document.querySelector('.social-icons');
+  socialIcons.style.opacity = 0;
+  socialIcons.style.transform = 'translateY(20px)';
+  setTimeout(() => {
+    socialIcons.style.transition = '0.6s ease';
+    socialIcons.style.opacity = 1;
+    socialIcons.style.transform = 'translateY(0)';
+  }, 200);
+
+  // Example: Start Typed.js animations
+  let typingText = new Typed("#text", {
+    strings: [
+      "Nahiar Abeer",
+      "BUETian",
+      "DMRCian",
+      "Programmer",
+      "Web Designer",
+      "Challenge Seeker",
+    ],
+    loop: true,
+    typeSpeed: 100,
+    backSpeed: 30,
+    backDelay: 2000,
+  });
+
+  let description = new Typed("#description", {
+    strings: ["",
+      "I'm Nahiar Abeer, a BUET Biomedical Engineering student with top admission ranks: BUET (720), BUP (72), MIST (165), and RUET (360). I teach Math, Physics, Chemistry, and specialize in Biology + ICT. With a strong academic background and skills in programming and front-end development, I simplify complex topics and help students learn effectively."
+    ],
+    loop: false, // Do not loop
+    typeSpeed: 30, // Typing speed for smooth animation
+    backSpeed: 0, // No backspacing
+    showCursor: true, // Show the blinking cursor for a typing effect
+    cursorChar: "|", // Customize the cursor character
+    onComplete: (self) => {
+      self.cursor.remove(); // Remove the cursor after typing is complete
+    },
+  });
+}
     </script>
   </body>
 </html>

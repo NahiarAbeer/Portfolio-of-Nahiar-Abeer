@@ -108,3 +108,18 @@ body {
     background: #2563eb;
     transform: scale(1.05);
 }
+.project-btn {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px 15px;
+    background-color: #3b82f6;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.project-btn:hover {
+    background-color: #2563eb;
+}
